@@ -8,7 +8,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
 const session = require('express-session');
-const MongoDBStore = require('connect-mongo');
+const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const ExpressError = require('./utils/ExpressError');
 const methodOverride = require('method-override');
@@ -52,7 +52,7 @@ app.use(mongoSanitize({
 }))
 
 
-const store = MongoDBStore.create({
+const store = MongoStore.create({
     mongoUrl: dbUrl,
     touchAfter: 24 * 60 * 60,
     crypto: {
